@@ -4,9 +4,11 @@ import maryam.petclinic.model.Owner;
 import maryam.petclinic.model.Pet;
 import maryam.petclinic.services.CrudService;
 import maryam.petclinic.services.PetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class PetServiceMap extends AbsctractMapService<Pet, Long> implements PetService {
 
     @Override
