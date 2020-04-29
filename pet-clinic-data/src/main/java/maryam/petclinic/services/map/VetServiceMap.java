@@ -2,10 +2,11 @@ package maryam.petclinic.services.map;
 
 import maryam.petclinic.model.Vet;
 import maryam.petclinic.services.CrudService;
+import maryam.petclinic.services.VetService;
 
 import java.util.Set;
 
-public class VetServiceMap extends AbsctractMapService<Vet, Long> implements CrudService<Vet, Long> {
+public class VetServiceMap extends AbsctractMapService<Vet, Long> implements VetService {
 
     @Override
     public Set<Vet> findAll() {
