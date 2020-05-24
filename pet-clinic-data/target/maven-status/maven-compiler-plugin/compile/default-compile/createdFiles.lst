@@ -1,5 +1,14 @@
-maryam\petclinic\model\Pet.class
 maryam\petclinic\model\Owner.class
-maryam\petclinic\model\PetType.class
 maryam\petclinic\model\Person.class
+maryam\petclinic\services\map\PetServiceMap.class
+maryam\petclinic\services\map\OwnerServiceMap.class
+maryam\petclinic\model\Pet.class
+maryam\petclinic\services\OwnerService.class
 maryam\petclinic\model\Vet.class
+maryam\petclinic\services\map\AbsctractMapService.class
+maryam\petclinic\services\VetService.class
+maryam\petclinic\services\map\VetServiceMap.class
+maryam\petclinic\model\BaseEntity.class
+maryam\petclinic\model\PetType.class
+maryam\petclinic\services\PetService.class
+maryam\petclinic\services\CrudService.class
