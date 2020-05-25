@@ -1,14 +1,12 @@
 package maryam.petclinic.bootstrap;
 
 import maryam.petclinic.model.*;
-import maryam.petclinic.services.OwnerService;
-import maryam.petclinic.services.PetTypeService;
-import maryam.petclinic.services.SpecialitiesService;
-import maryam.petclinic.services.VetService;
+import maryam.petclinic.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.Lob;
 import java.time.LocalDate;
 
 @Component
@@ -18,15 +16,15 @@ public class Dataloader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialitiesService specialitiesService;
+    private final VisitService visitService;
 
-    @Autowired
-    public Dataloader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialitiesService specialitiesService) {
+    public Dataloader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialitiesService specialitiesService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialitiesService = specialitiesService;
+        this.visitService = visitService;
     }
-
 
     @Override
     public void run(String... args) throws Exception {
@@ -87,6 +85,12 @@ public class Dataloader implements CommandLineRunner {
         owner2.getPets().add(fionasCat);
 
         ownerService.save(owner2);
+
+        Visit catVisit=new Visit();
+        catVisit.setPet(fionasCat);
+        catVisit.setDate(LocalDate.now());
+        catVisit.setDescription("Sneezy kitty");
+        visitService.save(catVisit);
 
         System.out.println("Loaded Owners..");
 
