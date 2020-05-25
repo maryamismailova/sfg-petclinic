@@ -3,12 +3,14 @@ package maryam.petclinic.services.map;
 import maryam.petclinic.model.Pet;
 import maryam.petclinic.model.PetType;
 import maryam.petclinic.services.PetTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class PetTypeServiceMap extends AbsctractMapService<PetType, Long> implements PetTypeService {
     @Override
     public Set<PetType> findAll() {

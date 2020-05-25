@@ -4,11 +4,13 @@ import maryam.petclinic.model.Owner;
 import maryam.petclinic.model.Pet;
 import maryam.petclinic.services.CrudService;
 import maryam.petclinic.services.PetService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class PetServiceMap extends AbsctractMapService<Pet, Long> implements PetService {
 
     @Override
