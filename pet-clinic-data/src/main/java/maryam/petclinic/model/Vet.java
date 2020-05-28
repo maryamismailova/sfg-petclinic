@@ -19,4 +19,20 @@ public class Vet extends Person{
     @JoinTable( name ="vet_specialties", joinColumns = @JoinColumn(name="vet_id"),
         inverseJoinColumns = @JoinColumn(name="specility_id"))
     private Set<Speciality> specialities = new HashSet<>();
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Vet vet = (Vet) o;
+
+        if(this.id.equals(vet.getId()))return true;
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return specialities != null ? specialities.hashCode() : 0;
+    }
 }
