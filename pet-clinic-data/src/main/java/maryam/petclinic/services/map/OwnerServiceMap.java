@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -73,5 +74,10 @@ public class OwnerServiceMap extends AbsctractMapService<Owner, Long> implements
         return this.findAll().stream().
                 filter(owner->owner.getLastname().equalsIgnoreCase(lastname))
                 .findFirst().orElse(null);
+    }
+
+    @Override
+    public List<Owner> findAllByLastNameLike(String lastname) {
+        return null;
     }
 }
